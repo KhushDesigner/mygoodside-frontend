@@ -1,0 +1,78 @@
+@use "../../styles/variable" as vars;
+
+// OTP Input Group
+.otpGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.otpInput {
+    width: 41px;
+    height: 41px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    color: vars.$text-primary;
+    background: vars.$bg-primary;
+    border: 1.5px solid vars.$text-primary;
+    border-radius: vars.$border-radius-xs;
+    transition: vars.$transition-main;
+    caret-color: vars.$text-primary;
+    padding: 10px;
+
+    &:focus {
+        outline: none;
+        border-color: vars.$text-primary;
+        box-shadow: 0 0 0 3px rgba(33, 33, 33, 0.08);
+    }
+
+    &--filled {
+        border-color: vars.$text-primary;
+        background: vars.$white;
+    }
+}
+
+// Resend block
+.resendBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    &__text {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        color: vars.$text-secondary;
+    }
+
+    &__btn {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        color: vars.$text-primary;
+        text-decoration: none;
+        text-underline-offset: 3px;
+        cursor: pointer;
+        transition: vars.$transition-main;
+        font-family: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:hover:not(&--disabled) {
+            opacity: 0.7;
+        }
+    }
+
+    &__timer {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        color: vars.$text-secondary;
+    }
+}

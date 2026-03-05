@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --bg-primary: #FDFBF7;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --accent: #1A1A1A;
+  --border-radius: 16px;
+  --input-bg: #F3F4F6;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Blobs */
+.bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.blob-1 {
+  background: radial-gradient(circle, #FFE5B4 0%, rgba(255, 229, 180, 0) 70%);
+  top: 10%;
+  left: 30%;
+  animation: move-1 20s infinite alternate;
+}
+
+.blob-2 {
+  background: radial-gradient(circle, #E0BBE4 0%, rgba(224, 187, 228, 0) 70%);
+  bottom: 10%;
+  right: 20%;
+  animation: move-2 25s infinite alternate;
+}
+
+.blob-3 {
+  background: radial-gradient(circle, #B2E2F2 0%, rgba(178, 226, 242, 0) 70%);
+  top: 40%;
+  left: 10%;
+  animation: move-3 18s infinite alternate;
+}
+
+@keyframes move-1 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(100px, 50px); }
+}
+
+@keyframes move-2 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-100px, -50px); }
+}
+
+@keyframes move-3 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(50px, -100px); }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}

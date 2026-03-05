@@ -1,0 +1,32 @@
+// Colors
+$bg-primary: #FFF7EC;
+$text-primary: #212121;
+$text-secondary: #4F4F4F;
+$accent: #1A1A1A;
+$input-bg: #F4F4F4;
+$border-color: rgba(255, 255, 255, 0.3);
+$card-bg: #FFFFFF1A;
+$divider-color: rgba(0, 0, 0, 0.1);
+$border-color: #E4E4E4;
+$placeholder-color: #B9B9B9;
+$white: #FFFFFF;
+
+// Typography
+$font-family-main: "Unbounded", sans-serif;
+$font-family-Aboreto: "Aboreto", system-ui;
+
+// Effects
+$border-radius-xs: 4px;
+$border-radius-sm: 8px;
+$border-radius-main: 16px;
+$border-radius-card: 24px;
+$border-radius-button: 40px;
+$border-radius-input: 12px;
+$transition-main: all 0.3s ease;
+$shadow-main: 0px 4px 14px 0 #0000001F;
+$shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+// Blobs
+$blob-1-bg: radial-gradient(circle, #FFE5B4 0%, rgba(255, 229, 180, 0) 70%);
+$blob-2-bg: radial-gradient(circle, #E0BBE4 0%, rgba(224, 187, 228, 0) 70%);
+$blob-3-bg: radial-gradient(circle, #B2E2F2 0%, rgba(178, 226, 242, 0) 70%);

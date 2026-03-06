@@ -115,23 +115,48 @@ a {
         transform: translateY(0);
     }
 
+    &--outline {
+        background-color: transparent;
+        color: vars.$text-primary;
+        border: 1px solid vars.$text-primary;
 
+        &:hover {
+            background-color: vars.$text-primary;
+            color: vars.$white;
+        }
+    }
+}
 
-    // &--primary {
-    //     background-color: vars.$text-primary;
-    //     color: white;
+// Section Heading CSS
+.sectionHeader {
+    text-align: center;
+    width: 100%;
 
-    //     &:hover {
-    //         background-color: darken(vars.$text-primary, 10%);
-    //     }
-    // }
+    &__title {
+        font-family: vars.$font-family-Aboreto;
+        font-size: 64px;
+        line-height: 77px;
+        font-weight: 400;
+        color: vars.$text-primary;
+        text-transform: uppercase;
 
-    // &--secondary {
-    //     background-color: vars.$input-bg;
-    //     color: vars.$text-primary;
+        @media (max-width: 991px) {
+            font-size: 32px;
+            line-height: 38px;
+        }
+    }
 
-    //     &:hover {
-    //         background-color: darken(vars.$input-bg, 10%);
-    //     }
-    // }
+    &__subtitle {
+        font-size: 16px;
+        line-height: 21px;
+        color: vars.$text-secondary;
+        max-width: 494px;
+        margin: 0 auto;
+        margin-top: 8px;
+
+        @media (max-width: 991px) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
 }

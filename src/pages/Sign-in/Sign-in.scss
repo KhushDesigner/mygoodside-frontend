@@ -28,6 +28,8 @@
         @media (max-width: 991px) {
             background: url("../../assets/images/bg-sm-Ellipse.svg");
             background-position: 50% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
     }
 

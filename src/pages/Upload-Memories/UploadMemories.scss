@@ -1,0 +1,249 @@
+@use "../../styles/variable" as vars;
+
+.uploadPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    width: 100%;
+    text-align: center;
+    flex: 1;
+
+    @media (max-width: 991px) {
+        padding: 32px 0;
+        justify-content: flex-start;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../../assets/images/bg-elipse.svg");
+        background-repeat: no-repeat;
+        background-position: 60% 100%;
+        background-size: contain;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+            background: url("../../assets/images/bg-sm-Ellipse.svg");
+            background-position: 50% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    &__content {
+        max-width: 868px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .backBtn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border: 1px solid vars.$text-primary;
+        border-radius: 999px;
+        font-weight: 500;
+        background: transparent;
+        transition: vars.$transition-main;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.05);
+            transform: translateX(-4px);
+        }
+
+        @media (max-width: 1200px) {
+            position: relative;
+            margin-bottom: 24px;
+        }
+    }
+}
+
+.inputGroupCard {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: vars.$border-radius-main;
+    width: 100%;
+    box-shadow: vars.$shadow-main;
+    background: vars.$card-bg;
+    padding: 24px;
+    border: 1px solid vars.$border-color;
+    text-align: left;
+
+    input {
+        background: vars.$input-bg-10;
+    }
+}
+
+.dropzone {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: vars.$border-radius-main;
+    width: 100%;
+    box-shadow: vars.$shadow-main;
+    background: vars.$card-bg;
+    padding: 40px 24px;
+    border: 1px solid vars.$border-color;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    @media (max-width: 991px) {
+        padding: 24px;
+    }
+
+    &.dragging {
+        background: vars.$input-bg-10;
+    }
+
+    &:hover {
+        background: vars.$input-bg-10;
+    }
+
+    &__icon {
+        width: 72px;
+        height: 72px;
+        background: vars.$gray;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        color: vars.$text-primary;
+    }
+
+    &__text {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        margin-bottom: 8px;
+        color: vars.$text-primary;
+
+        @media (max-width: 991px) {
+            font-size: 16px;
+            line-height: 21px;
+        }
+    }
+
+    &__hint {
+        color: vars.$text-secondary;
+        font-size: 14px;
+        line-height: 18px;
+
+        @media (max-width: 991px) {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.uploadedSection {
+    &__count {
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        color: vars.$text-primary;
+        text-align: left;
+
+        @media (max-width: 991px) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+
+.photoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 16px;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.photoItem {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &::after {
+        height: 100%;
+        width: 100%;
+        background: #00000033;
+        content: '';
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+
+    &__remove {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 20px;
+        height: 20px;
+        background: vars.$light-black;
+        color: vars.$white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: vars.$transition-main;
+        z-index: 1;
+
+        @media (max-width: 991px) {
+            top: 10px;
+            right: 10px;
+        }
+
+        &:hover {
+            background: rgba(255, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+    }
+}
+
+.continueBtn {
+    width: 100%;
+}

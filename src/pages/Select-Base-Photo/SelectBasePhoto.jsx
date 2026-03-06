@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Info } from 'lucide-react';
+import './SelectBasePhoto.scss';
+
+// Import images
+import photo1 from '../../assets/images/photo-1.png';
+import photo2 from '../../assets/images/photo-2.png';
+import photo3 from '../../assets/images/photo-3.png';
+import photo4 from '../../assets/images/photo-4.png';
+import photo5 from '../../assets/images/photo-5.png';
+import photo6 from '../../assets/images/photo-6.jpg';
+
+const MOCK_PHOTOS = [
+    { id: 1, url: photo1 },
+    { id: 2, url: photo2 },
+    { id: 3, url: photo3 },
+    { id: 4, url: photo4 },
+    { id: 5, url: photo5 },
+    { id: 6, url: photo6 },
+];
+
+const SelectBasePhoto = () => {
+    const navigate = useNavigate();
+    const [selectedId, setSelectedId] = useState(5); // Default selection as per design
+    const [showInfo, setShowInfo] = useState(false);
+
+    return (
+        <div className="selectBasePage">
+            <div className="siteContainer">
+                <div className="selectBasePage__inner">
+                    <button className="backButton" onClick={() => navigate(-1)}>
+                        <ArrowLeft size={18} />
+                        <span className="backButton__text">Back</span>
+                    </button>
+
+                    <header className="sectionHeader">
+                        <h1 className="sectionHeader__title">SELECT YOUR BASE PHOTO</h1>
+                        <p className="sectionHeader__subtitle">
+                            This photo will be the starting point for building your final group image.
+                        </p>
+                    </header>
+
+                    <div className="selectBasePage__content">
+                        <div className="selectBasePage__gridHeader">
+                            <h4 className="photosCount">{MOCK_PHOTOS.length} photos uploaded</h4>
+                            <div className="infoWrapper">
+                                <button
+                                    className="infoTrigger"
+                                    onMouseEnter={() => setShowInfo(true)}
+                                    onMouseLeave={() => setShowInfo(false)}
+                                    onClick={() => setShowInfo(!showInfo)}
+                                >
+                                    What is The Base Photo? <Info size={18} />
+                                </button>
+                                {showInfo && (
+                                    <div className="infoPopover">
+                                        <p>
+                                            The Base Photo is the main image we build everything from.
+                                            If someone in the photo doesn't choose their <strong>Good Side</strong>,
+                                            we'll automatically use this image for them.
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className="photoGrid">
+                            {MOCK_PHOTOS.map(photo => (
+                                <div
+                                    key={photo.id}
+                                    className={`photoItem ${selectedId === photo.id ? 'selected' : ''}`}
+                                    onClick={() => setSelectedId(photo.id)}
+                                >
+                                    <div className="photoItem__imageWrapper">
+                                        <img src={photo.url} alt={`Selection ${photo.id}`} />
+                                        {selectedId === photo.id && (
+                                            <span className="baseBadge">Base photo</span>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            className="button continueBtn"
+                            onClick={() => navigate('/success')}
+                        >
+                            Continue <ArrowRight size={24} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default SelectBasePhoto;

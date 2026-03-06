@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff, ArrowRight } from 'lucide-react';
-import './Sign-in.scss';
+import './Sign-up.scss';
 
-const SignIn = () => {
+const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
+        name: '',
         email: '',
         password: '',
-        rememberMe: false,
     });
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value,
+            [name]: value,
         }));
     };
 
@@ -30,13 +30,28 @@ const SignIn = () => {
                 <div className="authContainer__inner">
                     <div className="authCard">
                         <header className="authCard__header">
-                            <h1 className="authCard__header-title">WELCOME BACK</h1>
+                            <h1 className="authCard__header-title">CREATE YOUR ACCOUNT</h1>
                             <p className="authCard__header-subtitle">
-                                Pick up where you left off and create photos everyone can agree on.
+                                Secure group photos everyone can agree on (finally!)
                             </p>
                         </header>
 
                         <form className="authCard__form" onSubmit={handleSubmit}>
+                            <div className="inputGroup">
+                                <label htmlFor="name">Name</label>
+                                <div className="inputFieldWrapper">
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="How should we call you?"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
                             <div className="inputGroup">
                                 <label htmlFor="email">Email</label>
                                 <div className="inputFieldWrapper">
@@ -59,7 +74,7 @@ const SignIn = () => {
                                         type={showPassword ? 'text' : 'password'}
                                         id="password"
                                         name="password"
-                                        placeholder="Enter your password"
+                                        placeholder="Create a password"
                                         value={formData.password}
                                         onChange={handleChange}
                                         required
@@ -74,27 +89,13 @@ const SignIn = () => {
                                 </div>
                             </div>
 
-                            <div className="formOptions">
-                                <label className="checkboxContainer">
-                                    <input
-                                        type="checkbox"
-                                        name="rememberMe"
-                                        checked={formData.rememberMe}
-                                        onChange={handleChange}
-                                    />
-                                    <span className="checkboxContainer__checkmark"></span>
-                                    Remember me
-                                </label>
-                                <Link to="/forgot-password" className="forgotLink">Forgot password?</Link>
-                            </div>
-
                             <button type="submit" className="button">
-                                Sign in <ArrowRight size={24} />
+                                Create account <ArrowRight size={24} />
                             </button>
                         </form>
 
                         <p className="authCard__bottomText">
-                            Don't have an account? <Link to="/signup">Create one</Link>
+                            Already have an account? <Link to="/">Sign in</Link>
                         </p>
                     </div>
                 </div>
@@ -103,4 +104,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;

@@ -1,0 +1,192 @@
+@use "../../styles/variable" as vars;
+
+
+.naturalResults {
+    padding: 80px 0;
+    position: relative;
+    background-image: url('../../assets/images/natural-bg-blobs.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (max-width: 991px) {
+        padding: 32px 0;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__card {
+        width: 100%;
+        background: vars.$black-10;
+        border-radius: vars.$border-radius-main;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        overflow: hidden;
+        border: 1px solid vars.$white-20;
+
+        .chatSection {
+            background: linear-gradient(135deg, rgba(200, 200, 200, 0.2), rgba(255, 165, 0, 0.1), rgba(128, 0, 128, 0.1));
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .chatGlass {
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 24px;
+                padding: 30px;
+                width: 100%;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+
+                .chatHeader {
+                    font-family: vars.$font-family-main;
+                    font-size: 20px;
+                    font-weight: 800;
+                    text-align: center;
+                    margin-bottom: 24px;
+                    color: #1a1a1a;
+                }
+
+                .chatContent {
+                    .chatImage {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 12px;
+                    }
+                }
+            }
+        }
+
+        .textContent {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            .textLine {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                .pill-outline {
+                    font-weight: 800;
+                    font-size: 36px;
+                    border: 1px solid #1a1a1a;
+                    padding: 10px 30px;
+                    border-radius: 100px;
+                    text-transform: capitalize;
+                }
+
+                .serif-light {
+                    font-weight: 300;
+                    font-size: 36px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: #1a1a1a;
+                    opacity: 0.8;
+                }
+            }
+
+            .choiceYours {
+                margin-top: 40px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-size: 36px;
+                text-transform: uppercase;
+
+                .serif-light {
+                    font-weight: 400;
+                    letter-spacing: 2px;
+                }
+
+                .bold-alt {
+                    font-family: vars.$font-family-main;
+                    font-weight: 800;
+                    text-transform: lowercase;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+
+    &__textCard {
+        padding: 24px;
+        border-radius: 8px;
+        background: vars.$white;
+        display: flex;
+        flex-direction: column;
+        gap: 57px;
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        h5 {
+            font-size: 48px;
+            line-height: 58px;
+            font-weight: 400;
+            letter-spacing: -5%;
+            color: vars.$text-primary;
+            font-family: vars.$font-family-Aboreto;
+            text-transform: uppercase;
+
+            b {
+                font-family: vars.$font-family-main;
+                text-transform: lowercase;
+                display: inline-block;
+            }
+
+            span {
+                border: 1px solid vars.$text-primary;
+                padding: 9px 10px;
+                border-radius: 999px;
+                font-family: vars.$font-family-main;
+                text-transform: lowercase;
+                display: inline-block;
+            }
+
+        }
+    }
+
+    &__footer {
+        text-align: center;
+
+        &-badge {
+            font-size: 24px;
+            line-height: 31px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: vars.$text-primary;
+            gap: 6px;
+
+            span {
+                border: 1px solid vars.$text-primary;
+                padding: 9px 10px;
+                border-radius: 999px;
+            }
+        }
+
+        &-text {
+            max-width: 472px;
+            margin: 8px auto 0;
+            font-size: 16px;
+            line-height: 21px;
+            color: vars.$text-secondary;
+        }
+    }
+}

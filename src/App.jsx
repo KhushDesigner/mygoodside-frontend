@@ -10,6 +10,7 @@ import Success from './pages/Success/Success';
 import Onboarding from './pages/Onboarding/Onboarding';
 import UploadMemories from './pages/Upload-Memories/UploadMemories';
 import SelectBasePhoto from './pages/Select-Base-Photo/SelectBasePhoto';
+import Landing from './pages/Landing/Landing';
 import { useLocation } from 'react-router-dom';
 import './App.scss';
 
@@ -19,11 +20,11 @@ function App() {
 
   return (
     <div className="appWrapper">
-      <AuthHeader isDashboard={isDashboardPage} />
+      {location.pathname !== '/' && <AuthHeader isDashboard={isDashboardPage} />}
 
       <main className="mainContent">
         <Routes>
-          <Route path="/" element={<SignIn />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verification" element={<Verification />} />

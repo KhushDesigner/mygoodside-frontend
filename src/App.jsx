@@ -10,13 +10,19 @@ import Success from './pages/Success/Success';
 import Onboarding from './pages/Onboarding/Onboarding';
 import UploadMemories from './pages/Upload-Memories/UploadMemories';
 import SelectBasePhoto from './pages/Select-Base-Photo/SelectBasePhoto';
+import IdentifyYourself from './pages/Identify-Yourself/IdentifyYourself';
+import UploadPhoto from './pages/Upload-Photo/UploadPhoto';
+import InviteGroup from './pages/Invite-Group/InviteGroup';
+import Status from './pages/Status/Status';
+import PhotoGenerated from './pages/Photo-Generated/PhotoGenerated';
+import Profile from './pages/Profile/Profile';
 import Landing from './pages/Landing/Landing';
 import { useLocation } from 'react-router-dom';
 import './App.scss';
 
 function App() {
   const location = useLocation();
-  const isDashboardPage = ['/upload', '/select-base-photo'].includes(location.pathname);
+  const isDashboardPage = ['/upload', '/select-base-photo', '/identify-yourself', '/upload-photo', '/invite-group', '/status', '/photo-generated', '/profile'].includes(location.pathname);
 
   return (
     <div className="appWrapper">
@@ -33,6 +39,12 @@ function App() {
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/upload" element={<UploadMemories />} />
           <Route path="/select-base-photo" element={<SelectBasePhoto />} />
+          <Route path="/identify-yourself" element={<IdentifyYourself />} />
+          <Route path="/upload-photo" element={<UploadPhoto />} />
+          <Route path="/invite-group" element={<InviteGroup />} />
+          <Route path="/status" element={<Status />} />
+          <Route path="/photo-generated" element={<PhotoGenerated />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>

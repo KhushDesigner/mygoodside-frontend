@@ -53,6 +53,11 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+
+        .continueBtn {
+            width: 100%;
+            margin-top: 16px;
+        }
     }
 
     .backBtn {
@@ -190,7 +195,7 @@
     grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
     gap: 16px;
 
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -242,8 +247,4 @@
             transform: scale(1.1);
         }
     }
-}
-
-.continueBtn {
-    width: 100%;
 }

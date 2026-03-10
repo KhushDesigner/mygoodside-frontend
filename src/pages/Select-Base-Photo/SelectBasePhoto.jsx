@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Info } from 'lucide-react';
+import { Modal } from '@mui/material';
 import './SelectBasePhoto.scss';
 
 // Import images
@@ -24,6 +25,7 @@ const SelectBasePhoto = () => {
     const navigate = useNavigate();
     const [selectedId, setSelectedId] = useState(5); // Default selection as per design
     const [showInfo, setShowInfo] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="selectBasePage">
@@ -34,12 +36,12 @@ const SelectBasePhoto = () => {
                         <span className="backButton__text">Back</span>
                     </button>
 
-                    <header className="sectionHeader">
+                    <div className="sectionHeader">
                         <h1 className="sectionHeader__title">SELECT YOUR BASE PHOTO</h1>
                         <p className="sectionHeader__subtitle">
                             This photo will be the starting point for building your final group image.
                         </p>
-                    </header>
+                    </div>
 
                     <div className="selectBasePage__content">
                         <div className="selectBasePage__gridHeader">
@@ -51,7 +53,7 @@ const SelectBasePhoto = () => {
                                     onMouseLeave={() => setShowInfo(false)}
                                     onClick={() => setShowInfo(!showInfo)}
                                 >
-                                    What is The Base Photo? <Info size={18} />
+                                    What is The Base Photo? <Info size={24} />
                                 </button>
                                 {showInfo && (
                                     <div className="infoPopover">
@@ -84,11 +86,44 @@ const SelectBasePhoto = () => {
 
                         <button
                             className="button continueBtn"
-                            onClick={() => navigate('/success')}
+                            onClick={() => setIsModalOpen(true)}
                         >
                             Continue <ArrowRight size={24} />
                         </button>
                     </div>
+
+                    <Modal className='modalIdentify mainModal'
+                        open={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        aria-labelledby="base-photo-modal-title"
+                        aria-describedby="base-photo-modal-description"
+                    >
+                        <div className="modalContent">
+                            <div className="modalheader">
+                                <h2 className="modalTitle" id="base-photo-modal-title">Are you in this photo?</h2>
+                                <p className="modalText" id="base-photo-modal-description">If yes, you'll be able to highlight yourself.</p>
+                            </div>
+                            <div className="modalActions">
+                                <button
+                                    className="button button--outline"
+                                    onClick={() => {
+                                        setIsModalOpen(false);
+                                    }}
+                                >
+                                    No, I'm not
+                                </button>
+                                <button
+                                    className="button"
+                                    onClick={() => {
+                                        setIsModalOpen(false);
+                                        navigate('/identify-yourself');
+                                    }}
+                                >
+                                    Yes, I'm in it
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
                 </div>
             </div>
         </div>

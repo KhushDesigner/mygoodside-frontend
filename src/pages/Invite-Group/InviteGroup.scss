@@ -1,0 +1,463 @@
+@use "../../styles/variable" as vars;
+
+.inviteGroupPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    width: 100%;
+    flex: 1;
+
+    @media (max-width: 991px) {
+        padding: 32px 0;
+        justify-content: flex-start;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../../assets/images/bg-elipse.svg");
+        background-repeat: no-repeat;
+        background-position: 60% 100%;
+        background-size: contain;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+            background: url("../../assets/images/bg-sm-Ellipse.svg");
+            background-position: 50% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+        width: 100%;
+
+        .sectionHeader__subtitle {
+            max-width: 478px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 868px;
+        margin: 0 auto;
+
+        @media (max-width: 991px) {
+            max-width: 100%;
+        }
+
+        .continueBtn {
+            width: 100%;
+        }
+    }
+}
+
+.cardBlock {
+    background: vars.$card-bg;
+    /* semi-transparent white / glassmorphism */
+    border: 1px solid vars.$border-color;
+    box-shadow: vars.$shadow-main;
+    border-radius: vars.$border-radius-main;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    // backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.linkBlock {
+    &__qrWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    &__qrImg {
+        height: 144px;
+        width: 144px;
+        object-fit: contain;
+    }
+
+    &__qrText {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        color: vars.$text-secondary;
+    }
+}
+
+.copyLinkBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__title {
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 400;
+        color: vars.$text-primary;
+        margin: 0;
+    }
+
+    &__inputWrapper {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.linkInput {
+    flex: 1;
+    width: 100%;
+    background: vars.$input-bg-10;
+    border-radius: vars.$border-radius-sm;
+    padding: 13px 16px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: vars.$text-secondary;
+    transition: vars.$transition-main;
+    box-shadow: vars.$shadow-main;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 45px;
+
+    @media (max-width: 991px) {
+        height: auto;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__icon {
+        color: vars.$text-secondary;
+        height: 16px;
+        width: 16px;
+    }
+
+
+
+}
+
+.copyBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    height: 45px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid vars.$text-primary;
+    color: vars.$text-primary;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    @media (max-width: 991px) {
+        padding: 12px;
+        height: 44px;
+        width: 44px;
+        font-size: 0;
+        gap: 0;
+    }
+
+
+    &:hover {
+        background: vars.$text-primary;
+        color: vars.$white;
+    }
+}
+
+
+
+.deadlineBlock {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+
+    &__icon {
+        color: vars.$text-primary;
+        height: 24px;
+        width: 24px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__title {
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 500;
+        color: vars.$text-primary;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        color: vars.$text-secondary;
+        margin: 0;
+    }
+
+    &__inputWrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        &:focus {
+            outline: none;
+            border-color: vars.$text-primary;
+        }
+    }
+
+    &__input {
+        padding: 12px 16px;
+        height: 45px;
+        border-radius: vars.$border-radius-sm;
+        background-color: vars.$input-bg;
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 600;
+        color: vars.$text-primary;
+        width: 77px;
+    }
+
+    &__inputUnit {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        color: vars.$text-secondary;
+    }
+}
+
+
+/* Modal Styles for Share Modal */
+.shareModal {
+    .modalContent {
+        max-width: 600px;
+
+        @media (max-width: 767px) {
+            top: auto;
+            bottom: 0;
+            transform: translate(-50%, 0);
+            border-radius: 16px 16px 0 0;
+            max-width: 100%;
+        }
+
+        .modalheader {
+            margin-bottom: 24px;
+
+            @media (max-width: 991px) {
+                margin-bottom: 24px;
+            }
+        }
+
+        .modalTitle {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 34px;
+            color: vars.$text-primary;
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-family: vars.$font-family-main;
+        }
+
+        .modalText {
+            font-size: 14px;
+            line-height: 18px;
+            color: vars.$text-secondary;
+            margin: 0;
+            font-weight: 400;
+
+            @media (max-width: 991px) {
+                max-width: 288px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .modalBody {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 60px;
+        text-align: left;
+    }
+
+    .socialIcons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 16px 24px;
+
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    .socialItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+
+        span {
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+            color: vars.$text-secondary;
+
+            @media (max-width: 991px) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        .socialIcon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: 991px) {
+                width: 40px;
+                height: 40px;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .inviteUser {
+        border-top: 1px solid vars.$border-color-extraLight;
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .searchWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .searchIcon {
+            position: absolute;
+            left: 16px;
+            color: vars.$text-secondary;
+            height: 16px;
+            width: 16px;
+        }
+
+        .searchInput {
+            flex: 1;
+            width: 100%;
+            background: vars.$input-bg-10;
+            border-radius: vars.$border-radius-sm;
+            padding: 13px 16px;
+            padding-left: 40px;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+            color: vars.$text-secondary;
+            transition: all 0.3s ease;
+            box-shadow: vars.$shadow-main;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 45px;
+
+            &::placeholder {
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 400;
+                color: vars.$text-secondary;
+            }
+        }
+    }
+
+    .inviteUserList {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .inviteUserItem {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        justify-content: space-between;
+
+        &__avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        &__info {
+            flex: 1;
+        }
+
+        &__inner {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        &__name {
+            font-size: 16px;
+            line-height: 21px;
+            font-weight: 500;
+            color: vars.$text-primary;
+            margin: 0 0 4px 0;
+        }
+
+        &__email {
+            font-size: 12px;
+            line-height: 16px;
+            color: vars.$text-secondary;
+            margin: 0;
+        }
+
+        .button {
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 500;
+            height: auto;
+        }
+    }
+}

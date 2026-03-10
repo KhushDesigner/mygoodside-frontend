@@ -1,0 +1,222 @@
+@use "../../styles/variable" as vars;
+
+.photoGeneratedPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    width: 100%;
+    flex: 1;
+
+    @media (max-width: 991px) {
+        padding: 32px 0;
+        justify-content: flex-start;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../../assets/images/bg-elipse.svg");
+        background-repeat: no-repeat;
+        background-position: 60% 100%;
+        background-size: contain;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+            background: url("../../assets/images/bg-sm-Ellipse.svg");
+            background-position: 50% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+
+        .backButton {
+            align-self: flex-start;
+            margin-bottom: 0;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 868px;
+        margin: 0 auto;
+    }
+}
+
+.photoContainer {
+    width: 100%;
+    border-radius: 16px;
+    padding: 8px;
+    background: vars.$white;
+    box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.08);
+    /* soft glow/shadow */
+    margin-bottom: 32px;
+
+    .generatedImg {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        display: block;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        padding: 6px;
+        margin-bottom: 24px;
+
+        .generatedImg {
+            border-radius: 10px;
+        }
+    }
+}
+
+.eventTitle {
+    font-size: 32px;
+    font-weight: 500;
+    color: vars.$text-primary;
+    margin: 0 0 24px 0;
+    font-family: vars.$font-family-main;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        margin: 0 0 20px 0;
+    }
+}
+
+.mainActions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 99px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: vars.$transition-main;
+
+        svg {
+            stroke-width: 2px;
+        }
+
+        @media (max-width: 576px) {
+            width: 100%;
+            padding: 14px 20px;
+        }
+    }
+
+    .shareBtn {
+        border-color: vars.$text-primary;
+        color: vars.$text-primary;
+
+        svg {
+            color: vars.$text-primary;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    .downloadBtn {
+        background-color: vars.$text-primary;
+        color: vars.$white;
+
+        svg {
+            color: vars.$white;
+        }
+
+        &:hover {
+            background-color: #000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+.socialShare {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    &__text {
+        font-size: 12px;
+        font-weight: 500;
+        color: vars.$text-secondary;
+        margin: 0;
+    }
+
+    &__icons {
+        display: flex;
+        gap: 12px;
+
+        .socialIcon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: vars.$white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            &.fb {
+                background: #1877F2;
+            }
+
+            &.ig {
+                background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            }
+
+            &.wa {
+                background: #25D366;
+            }
+
+            &.snap {
+                background: #FFFC00;
+                color: #000;
+            }
+        }
+    }
+}

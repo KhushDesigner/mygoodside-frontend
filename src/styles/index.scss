@@ -106,19 +106,7 @@ a {
         height: 52px;
     }
 
-    &--sm {
-        font-size: 16px;
-        line-height: 21px;
-        padding: 16px 32px;
-        height: 52px;
 
-        @media (max-width: 991px) {
-            font-size: 14px;
-            line-height: 18px;
-            padding: 14px 20px;
-            height: 46px;
-        }
-    }
 
     &:hover {
         transform: translateY(-2px);
@@ -139,6 +127,25 @@ a {
             color: vars.$white;
         }
     }
+
+    &--sm {
+        font-size: 16px;
+        line-height: 21px;
+        padding: 16px 32px;
+        height: 52px;
+        gap: 8px;
+
+        @media (max-width: 991px) {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 14px 20px;
+            height: 46px;
+        }
+    }
+
+    &.w-full {
+        width: 100%;
+    }
 }
 
 // Section Heading CSS
@@ -158,6 +165,11 @@ a {
             font-size: 32px;
             line-height: 38px;
         }
+
+        .highlight {
+            font-family: vars.$font-family-main;
+            text-transform: capitalize;
+        }
     }
 
     &__subtitle {
@@ -171,6 +183,10 @@ a {
         @media (max-width: 991px) {
             font-size: 14px;
             line-height: 18px;
+        }
+
+        &.w-full {
+            max-width: 100%;
         }
     }
 }

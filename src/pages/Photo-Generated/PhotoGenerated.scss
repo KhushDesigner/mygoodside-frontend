@@ -41,7 +41,7 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 40px;
         align-items: center;
         width: 100%;
         text-align: center;
@@ -56,110 +56,72 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        text-align: center;
+        gap: 40px;
+
+        @media (max-width: 991px) {
+            gap: 32px;
+        }
+    }
+
+    &__eventTitle {
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 48px;
+        color: vars.$text-primary;
+        letter-spacing: -5%;
+
+        @media (max-width: 991px) {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
         align-items: center;
-        max-width: 868px;
-        margin: 0 auto;
+        gap: 24px;
+
+        @media (max-width: 768px) {
+            flex-direction: column-reverse;
+            width: 100%;
+
+            .button {
+                width: 100%;
+            }
+        }
+
     }
 }
 
 .photoContainer {
+    position: relative;
     width: 100%;
-    border-radius: 16px;
-    padding: 8px;
+    border-radius: vars.$border-radius-main;
+    border: 12px solid vars.$white;
+    overflow: hidden;
     background: vars.$white;
-    box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.08);
-    /* soft glow/shadow */
-    margin-bottom: 32px;
+    box-sizing: border-box;
+    box-shadow: vars.$shadow-main;
+    max-width: 868px;
+    margin: 0 auto;
 
-    .generatedImg {
+    @media (max-width: 991px) {
+        border: 6px solid vars.$white;
+    }
+
+    &__img {
         width: 100%;
-        height: auto;
-        border-radius: 12px;
-        display: block;
+        height: 100%;
         object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-        padding: 6px;
-        margin-bottom: 24px;
-
-        .generatedImg {
-            border-radius: 10px;
-        }
-    }
-}
-
-.eventTitle {
-    font-size: 32px;
-    font-weight: 500;
-    color: vars.$text-primary;
-    margin: 0 0 24px 0;
-    font-family: vars.$font-family-main;
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        margin: 0 0 20px 0;
-    }
-}
-
-.mainActions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    width: 100%;
-
-    @media (max-width: 576px) {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 14px 28px;
-        border-radius: 99px;
-        font-weight: 600;
-        font-size: 16px;
-        transition: vars.$transition-main;
-
-        svg {
-            stroke-width: 2px;
-        }
-
-        @media (max-width: 576px) {
-            width: 100%;
-            padding: 14px 20px;
-        }
-    }
-
-    .shareBtn {
-        border-color: vars.$text-primary;
-        color: vars.$text-primary;
-
-        svg {
-            color: vars.$text-primary;
-        }
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-    }
-
-    .downloadBtn {
-        background-color: vars.$text-primary;
-        color: vars.$white;
-
-        svg {
-            color: vars.$white;
-        }
-
-        &:hover {
-            background-color: #000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
+        border-radius: 12px;
     }
 }
 
@@ -167,10 +129,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 
     &__text {
         font-size: 12px;
+        line-height: 16px;
         font-weight: 500;
         color: vars.$text-secondary;
         margin: 0;
@@ -178,45 +141,29 @@
 
     &__icons {
         display: flex;
-        gap: 12px;
+        gap: 16px;
+    }
 
-        .socialIcon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: vars.$white;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+    &__icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
 
-            svg {
-                width: 16px;
-                height: 16px;
-            }
-
-            &:hover {
-                transform: translateY(-2px);
-            }
-
-            &.fb {
-                background: #1877F2;
-            }
-
-            &.ig {
-                background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            }
-
-            &.wa {
-                background: #25D366;
-            }
-
-            &.snap {
-                background: #FFFC00;
-                color: #000;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
     }
 }

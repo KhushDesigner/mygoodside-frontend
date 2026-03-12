@@ -83,7 +83,7 @@ const Verification = () => {
     };
 
     return (
-        <div className="authContainer">
+        <div className="authContainer authBG">
             <div className="siteContainer">
                 <div className="authContainer__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

@@ -12,7 +12,7 @@ const IdentifyYourself = () => {
     const [selectedFace, setSelectedFace] = useState(null);
 
     return (
-        <div className="identifyYourselfPage">
+        <div className="identifyYourselfPage templateBG">
             <div className="siteContainer">
                 <div className="identifyYourselfPage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

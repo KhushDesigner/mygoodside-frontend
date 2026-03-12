@@ -16,27 +16,6 @@
         justify-content: flex-start;
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url("../../assets/images/bg-elipse.svg");
-        background-repeat: no-repeat;
-        background-position: 60% 100%;
-        background-size: contain;
-        z-index: -1;
-
-        @media (max-width: 991px) {
-            background: url("../../assets/images/bg-sm-Ellipse.svg");
-            background-position: 50% 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-    }
-
     &__inner {
         position: relative;
         z-index: 1;

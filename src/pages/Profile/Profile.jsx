@@ -7,6 +7,7 @@ import './Profile.scss';
 import userAvatar from '../../assets/images/user-avatar.png';
 import albumImg1 from '../../assets/images/photo-1.png';
 import albumImg2 from '../../assets/images/photo-3.png';
+import AddFriendModal from '../../components/AddFriendModal/AddFriendModal';
 
 const MOCK_ALBUMS = [
     {
@@ -28,9 +29,10 @@ const MOCK_ALBUMS = [
 const Profile = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('albums'); // 'albums' | 'photos'
+    const [isAddFriendModalOpen, setIsAddFriendModalOpen] = useState(false);
 
     return (
-        <div className="profilePage">
+        <div className="profilePage profileBG">
             <div className="siteContainer">
                 <div className="profilePage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>
@@ -47,7 +49,10 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="profilePage__actions">
-                                <button className="button button--outline">
+                                <button
+                                    className="button button--outline"
+                                    onClick={() => setIsAddFriendModalOpen(true)}
+                                >
                                     <UserPlus size={18} /> Add friend
                                 </button>
                                 <button
@@ -79,11 +84,43 @@ const Profile = () => {
                                 <div className='profilePage__list'>
                                     <div className="albumsGrid">
                                         {MOCK_ALBUMS.map(album => (
-                                            <div className="albumCard" key={album.id}>
+                                            <div
+                                                className="albumCard"
+                                                key={album.id}
+                                                onClick={() => navigate('/profile/pending')}
+                                                style={{ cursor: 'pointer' }}
+                                            >
                                                 <div className="albumCard__stack">
-                                                    <div className="albumCard__stackLayer layer3"></div>
-                                                    <div className="albumCard__stackLayer layer2"></div>
-                                                    <div className="albumCard__stackLayer layer1"></div>
+                                                    <div className="albumCard__main">
+                                                        <img src={album.coverImage} alt={album.title} className="albumImg" />
+                                                        <div className="albumOverlay">
+                                                            <h3 className="albumTitle">{album.title}</h3>
+                                                            <div className="albumDate">
+                                                                <Calendar size={14} />
+                                                                <span>{album.date}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="albumCard__main">
+                                                        <img src={album.coverImage} alt={album.title} className="albumImg" />
+                                                        <div className="albumOverlay">
+                                                            <h3 className="albumTitle">{album.title}</h3>
+                                                            <div className="albumDate">
+                                                                <Calendar size={14} />
+                                                                <span>{album.date}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="albumCard__main">
+                                                        <img src={album.coverImage} alt={album.title} className="albumImg" />
+                                                        <div className="albumOverlay">
+                                                            <h3 className="albumTitle">{album.title}</h3>
+                                                            <div className="albumDate">
+                                                                <Calendar size={14} />
+                                                                <span>{album.date}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                     <div className="albumCard__main">
                                                         <img src={album.coverImage} alt={album.title} className="albumImg" />
@@ -116,6 +153,11 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+
+            <AddFriendModal
+                isOpen={isAddFriendModalOpen}
+                onClose={() => setIsAddFriendModalOpen(false)}
+            />
         </div>
     );
 };

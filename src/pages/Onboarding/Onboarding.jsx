@@ -10,7 +10,7 @@ const Onboarding = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="onboardingModule">
+        <div className="onboardingModule authBG">
             <div className="siteContainer">
                 <div className="onboardingModule__content">
                     <div className="onboardingModule__header">
@@ -25,7 +25,7 @@ const Onboarding = () => {
                     </div>
 
                     <div className="onboardingModule__actions">
-                        <button className="button" onClick={() => navigate('/forgot-password')}>
+                        <button className="button" onClick={() => navigate('/upload')}>
                             Create a group photo <ArrowRight size={20} />
                         </button>
                         <button className="button button--outline" onClick={() => console.log('Joining group')}>

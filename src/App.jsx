@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import AuthHeader from './components/AuthHeader/AuthHeader';
 import SignIn from './pages/Sign-in/Sign-in';
 import SignUp from './pages/Sign-up/Sign-up';
@@ -16,13 +16,17 @@ import InviteGroup from './pages/Invite-Group/InviteGroup';
 import Status from './pages/Status/Status';
 import PhotoGenerated from './pages/Photo-Generated/PhotoGenerated';
 import Profile from './pages/Profile/Profile';
+import PendingPage from './pages/Pending/PendingPage';
+import GeneratedPage from './pages/Generated/GeneratedPage';
+import AccountSettings from './pages/Account-Settings/AccountSettings';
+import CreatingPhoto from './pages/Creating-Photo/CreatingPhoto';
+import JoinGroup from './pages/Join-Group/JoinGroup';
 import Landing from './pages/Landing/Landing';
-import { useLocation } from 'react-router-dom';
 import './App.scss';
 
 function App() {
   const location = useLocation();
-  const isDashboardPage = ['/upload', '/select-base-photo', '/identify-yourself', '/upload-photo', '/invite-group', '/status', '/photo-generated', '/profile'].includes(location.pathname);
+  const isDashboardPage = ['/upload', '/select-base-photo', '/identify-yourself', '/upload-photo', '/invite-group', '/status', '/photo-generated', '/profile', '/creating-photo'].includes(location.pathname);
 
   return (
     <div className="appWrapper">
@@ -31,6 +35,7 @@ function App() {
       <main className="mainContent">
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verification" element={<Verification />} />
@@ -45,6 +50,11 @@ function App() {
           <Route path="/status" element={<Status />} />
           <Route path="/photo-generated" element={<PhotoGenerated />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/pending" element={<PendingPage />} />
+          <Route path="/profile/generated" element={<GeneratedPage />} />
+          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/creating-photo" element={<CreatingPhoto />} />
+          <Route path="/join-group" element={<JoinGroup />} />
         </Routes>
       </main>
     </div>

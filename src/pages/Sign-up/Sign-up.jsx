@@ -25,7 +25,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className="authContainer">
+        <div className="authContainer authBG">
             <div className="siteContainer">
                 <div className="authContainer__inner">
                     <div className="authCard">
@@ -95,7 +95,7 @@ const SignUp = () => {
                         </form>
 
                         <p className="authCard__bottomText">
-                            Already have an account? <Link to="/">Sign in</Link>
+                            Already have an account? <Link to="/signin">Sign in</Link>
                         </p>
                     </div>
                 </div>

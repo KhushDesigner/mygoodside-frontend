@@ -31,7 +31,7 @@
 
     &--filled {
         border-color: vars.$text-primary;
-        background: vars.$white;
+        background: vars.$bg-primary;
     }
 }
 
@@ -74,5 +74,6 @@
         line-height: 18px;
         font-weight: 500;
         color: vars.$text-secondary;
+        text-align: center;
     }
 }

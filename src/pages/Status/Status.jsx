@@ -37,7 +37,7 @@ const Status = () => {
     const totalCount = mockUsers.length;
 
     return (
-        <div className="statusPage">
+        <div className="statusPage templateBG">
             <div className="siteContainer">
                 <div className="statusPage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

@@ -7,7 +7,7 @@ const Success = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="authContainer authContainer--success">
+        <div className="authContainer authBG authContainer--success">
             <div className="siteContainer">
                 <div className="authContainer__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>
@@ -29,7 +29,7 @@ const Success = () => {
                                 </p>
                             </header>
 
-                            <button className="button" onClick={() => navigate('/')}>
+                            <button className="button" onClick={() => navigate('/onboarding')}>
                                 Sign in <ArrowRight size={20} />
                             </button>
                         </div>

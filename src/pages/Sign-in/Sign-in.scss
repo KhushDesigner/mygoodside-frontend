@@ -1,5 +1,30 @@
 @use "../../styles/variable" as vars;
 
+.authBG {
+    position: inherit !important;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../../assets/images/bg-elipse.svg");
+        background-repeat: no-repeat;
+        background-position: 60% 0%;
+        background-size: 872px auto;
+
+        @media (max-width: 991px) {
+            background: url("../../assets/images/bg-sm-Ellipse.svg");
+            background-position: 50% 0%;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+        }
+    }
+}
+
 .authContainer {
     height: 100%;
     display: flex;
@@ -13,25 +38,6 @@
         padding: 32px 0;
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url("../../assets/images/bg-elipse.svg");
-        background-repeat: no-repeat;
-        background-position: 60% 100%;
-        background-size: contain;
-
-        @media (max-width: 991px) {
-            background: url("../../assets/images/bg-sm-Ellipse.svg");
-            background-position: 50% 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-    }
 
     &__inner {
         position: relative;

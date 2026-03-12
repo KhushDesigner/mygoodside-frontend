@@ -53,7 +53,7 @@ const UploadMemories = () => {
     };
 
     return (
-        <div className="uploadPage">
+        <div className="uploadPage templateBG">
             <div className="siteContainer">
                 <div className="uploadPage__inner">
                     {uploadedPhotos.length > 0 && (

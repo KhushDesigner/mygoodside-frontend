@@ -24,7 +24,7 @@ const InviteGroup = () => {
     };
 
     return (
-        <div className="inviteGroupPage">
+        <div className="inviteGroupPage templateBG">
             <div className="siteContainer">
                 <div className="inviteGroupPage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

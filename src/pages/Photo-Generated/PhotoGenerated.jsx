@@ -14,7 +14,7 @@ const PhotoGenerated = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="photoGeneratedPage">
+        <div className="photoGeneratedPage templateBG">
             <div className="siteContainer">
                 <div className="photoGeneratedPage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

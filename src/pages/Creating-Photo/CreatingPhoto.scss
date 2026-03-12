@@ -1,0 +1,109 @@
+@use "../../styles/variable" as vars;
+
+.waitingBlobPage {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../assets/images/waitingBlobBG.png');
+    background-size: contain;
+    background-position: left bottom;
+}
+
+.waitingBlob {
+    position: relative;
+    z-index: 1;
+    // Very large — matches the near-full-screen circle in the screenshot
+    width: min(800px, 92vw);
+    height: min(800px, 92vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.1);
+        background-image: url(../../assets/images/waitingBlob-Eclipse1.png);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.1);
+        background-image: url(../../assets/images/waitingBlob-Eclipse.png);
+    }
+
+    &__circle {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: vars.$card-bg;
+        border: 1.5px solid vars.$border-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 607px;
+        margin: 0 auto;
+
+        @media (max-width: 768px) {
+            padding: 40px 32px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 28px 20px;
+        }
+    }
+
+    &__title {
+        font-family: vars.$font-family-Aboreto;
+        font-size: 54px;
+        font-weight: 400;
+        color: vars.$text-primary;
+        margin: 0 0 104px 0;
+        line-height: 62px;
+        letter-spacing: -5%;
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+            margin-bottom: 28px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        p {
+            font-size: 24px;
+            line-height: 28px;
+            color: vars.$text-primary;
+            margin: 0;
+            text-align: center;
+
+            strong {
+                font-weight: 700;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+    }
+}

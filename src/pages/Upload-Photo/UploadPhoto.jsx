@@ -25,7 +25,7 @@ const UploadPhoto = () => {
     const [selectedId, setSelectedId] = useState(5); // Default selection as per design
 
     return (
-        <div className="selectBasePage uploadPhoto">
+        <div className="selectBasePage uploadPhoto templateBG">
             <div className="siteContainer">
                 <div className="selectBasePage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

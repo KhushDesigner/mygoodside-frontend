@@ -25,7 +25,7 @@ const SignIn = () => {
     };
 
     return (
-        <div className="authContainer">
+        <div className="authContainer authBG">
             <div className="siteContainer">
                 <div className="authContainer__inner">
                     <div className="authCard">

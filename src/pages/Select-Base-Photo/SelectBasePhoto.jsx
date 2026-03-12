@@ -28,7 +28,7 @@ const SelectBasePhoto = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <div className="selectBasePage">
+        <div className="selectBasePage templateBG">
             <div className="siteContainer">
                 <div className="selectBasePage__inner">
                     <button className="backButton" onClick={() => navigate(-1)}>

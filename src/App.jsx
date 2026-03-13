@@ -21,6 +21,7 @@ import GeneratedPage from './pages/Generated/GeneratedPage';
 import AccountSettings from './pages/Account-Settings/AccountSettings';
 import CreatingPhoto from './pages/Creating-Photo/CreatingPhoto';
 import JoinGroup from './pages/Join-Group/JoinGroup';
+import EarlyAccess from './pages/Early-Access/EarlyAccess';
 import Landing from './pages/Landing/Landing';
 import './App.scss';
 
@@ -35,6 +36,7 @@ function App() {
       <main className="mainContent">
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/early-access" element={<EarlyAccess />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

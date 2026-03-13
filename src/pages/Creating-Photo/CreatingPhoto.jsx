@@ -6,7 +6,7 @@ const CreatingPhoto = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="waitingBlobPage authBG">
+        <div className="waitingBlobPage">
             {/* Integrate Sasha's waiting page here */}
             <div className="waitingBlob">
                 <div className="waitingBlob__circle">

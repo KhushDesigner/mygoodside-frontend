@@ -5,7 +5,7 @@
     padding: 80px 0;
     position: relative;
     background-image: url('../../assets/images/natural-bg-blobs.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -17,6 +17,7 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
+        align-items: center;
     }
 
     &__card {
@@ -126,6 +127,7 @@
         background: vars.$white;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 57px;
 
         &-text {
@@ -147,6 +149,7 @@
                 font-family: vars.$font-family-main;
                 text-transform: lowercase;
                 display: inline-block;
+                margin: 0 6px;
             }
 
             span {
@@ -156,8 +159,33 @@
                 font-family: vars.$font-family-main;
                 text-transform: lowercase;
                 display: inline-block;
+                margin: 0 6px;
             }
 
+        }
+    }
+
+    &__chatSection {
+        background: vars.$black-5;
+        border-radius: vars.$border-radius-sm;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        border: 1px solid vars.$border-color-50;
+
+        &-head {
+            font-size: 24px;
+            line-height: 31px;
+            font-weight: 500;
+            color: vars.$text-primary;
+            text-align: center;
+        }
+
+        &-body {
+            img {
+                width: 100%;
+            }
         }
     }
 

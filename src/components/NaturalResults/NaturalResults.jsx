@@ -9,11 +9,9 @@ const NaturalResults = () => {
                 <div className='naturalResults__inner'>
                     <div className="naturalResults__card">
                         <div className="naturalResults__chatSection">
-                            <div className="chatGlass">
-                                <div className="chatHeader">Friday Night Fun.</div>
-                                <div className="chatContent">
-                                    <img src={naturalChat} alt="Chat interaction" className="chatImage" />
-                                </div>
+                            <div className="naturalResults__chatSection-head">Friday Night Fun.</div>
+                            <div className="naturalResults__chatSection-body">
+                                <img src={naturalChat} alt="Chat interaction" className="chatImage" />
                             </div>
                         </div>
 

@@ -9,10 +9,14 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
     background-image: url('../../assets/images/waitingBlobBG.png');
     background-size: contain;
     background-position: left bottom;
+
+    @media (max-width: 991px) {
+        overflow: hidden;
+        padding: 70px 0;
+    }
 }
 
 .waitingBlob {
@@ -25,20 +29,57 @@
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 991px) {
+        width: min(557px, 92vw);
+        height: min(557px, 92vw);
+    }
+
+    @media (max-width: 767px) {
+        width: 520px;
+        height: 520px;
+    }
+
     &::before {
         content: '';
         position: absolute;
-        inset: 0;
+        left: -70px;
+        width: calc(100% + 150px);
+        top: -80px;
+        height: 550px;
         background: rgba(255, 255, 255, 0.1);
         background-image: url(../../assets/images/waitingBlob-Eclipse1.png);
+        background-repeat: no-repeat;
+        background-position: contain;
+        background-size: 953px 550px;
+        z-index: 0;
+
+        @media (max-width: 991px) {
+            background-size: 623px 440px;
+            height: 440px;
+            top: -70px;
+        }
     }
 
     &::after {
         content: '';
         position: absolute;
-        inset: 0;
+        left: -70px;
+        width: calc(100% + 150px);
+        bottom: -80px;
+        height: 550px;
+        background-repeat: no-repeat;
         background: rgba(255, 255, 255, 0.1);
         background-image: url(../../assets/images/waitingBlob-Eclipse.png);
+        background-repeat: no-repeat;
+        background-position: contain;
+        background-size: 953px 550px;
+        z-index: 0;
+
+        @media (max-width: 991px) {
+            background-size: 623px 440px;
+            height: 440px;
+            bottom: 70px;
+        }
     }
 
     &__circle {
@@ -47,11 +88,13 @@
         height: 100%;
         border-radius: 50%;
         background: vars.$card-bg;
-        border: 1.5px solid vars.$border-color;
+        border: 1.5px solid vars.$white;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        position: relative;
+        z-index: 2;
     }
 
     &__inner {
@@ -60,14 +103,6 @@
         text-align: center;
         max-width: 607px;
         margin: 0 auto;
-
-        @media (max-width: 768px) {
-            padding: 40px 32px;
-        }
-
-        @media (max-width: 480px) {
-            padding: 28px 20px;
-        }
     }
 
     &__title {
@@ -75,13 +110,14 @@
         font-size: 54px;
         font-weight: 400;
         color: vars.$text-primary;
-        margin: 0 0 104px 0;
+        margin: 0 0 104px;
         line-height: 62px;
         letter-spacing: -5%;
 
-        @media (max-width: 768px) {
-            font-size: 24px;
-            margin-bottom: 28px;
+        @media (max-width: 991px) {
+            font-size: 32px;
+            line-height: 38px;
+            margin: 0 0 10px;
         }
     }
 
@@ -89,6 +125,13 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+
+        @media (max-width: 991px) {
+            gap: 4px;
+            max-width: 332px;
+            width: 100%;
+            margin: 0 auto;
+        }
 
         p {
             font-size: 24px;
@@ -101,8 +144,9 @@
                 font-weight: 700;
             }
 
-            @media (max-width: 768px) {
-                font-size: 14px;
+            @media (max-width: 991px) {
+                font-size: 12px;
+                line-height: 16px;
             }
         }
     }

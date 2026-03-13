@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ctaGallery from '../../assets/images/cta-gallery.png';
 import './ctaSection.scss'
 
@@ -11,7 +12,7 @@ const CtaSection = () => {
                         THE GROUP PHOTO, <span>perfected.</span>
                     </h2>
 
-                    <button className="button button--sm">Keep me in the loop</button>
+                    <Link to="/early-access" className="button button--sm">Keep me in the loop</Link>
 
                     <div className="ctaSection__image">
                         <img src={ctaGallery} alt="Group Photos" />

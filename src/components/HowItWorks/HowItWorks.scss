@@ -1,0 +1,326 @@
+@use "../../styles/variable" as vars;
+
+.howItWorks {
+    padding: 120px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+
+    .bgBlobs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+        }
+
+        .blob-orange {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #FFB75C 0%, rgba(255, 183, 92, 0) 70%);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blob-pink {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #F6BADF 0%, rgba(246, 186, 223, 0) 70%);
+            top: 25%;
+            right: 10%;
+        }
+
+        .blob-yellow {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #FFF78B 0%, rgba(255, 247, 139, 0) 70%);
+            top: 50%;
+            left: 5%;
+        }
+
+        .blob-purple {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, #BF88FF 0%, rgba(191, 136, 255, 0) 70%);
+            bottom: 20%;
+            right: 15%;
+        }
+        
+        .blob-gold {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #FFD86D 0%, rgba(255, 216, 109, 0) 70%);
+            bottom: 5%;
+            left: 20%;
+        }
+    }
+
+    .sectionHeader {
+        margin-bottom: 120px;
+
+        .sectionTitle {
+            font-family: vars.$font-family-main;
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: vars.$text-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            span:not(.pill) {
+                text-transform: uppercase;
+                letter-spacing: -1px;
+            }
+
+            .pill {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 40px;
+                border: 1.5px solid vars.$text-primary;
+                border-radius: 100px;
+                font-weight: 700;
+                background: vars.$white;
+                font-size: 48px;
+                text-transform: none;
+                margin-left: 10px;
+            }
+        }
+
+        .sectionSubtitle {
+            font-size: 18px;
+            color: vars.$text-secondary;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+    }
+
+    .stepsContainer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 160px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .stepConnector {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 200px);
+            z-index: 0;
+            pointer-events: none;
+
+            path {
+                fill: none;
+                stroke: #212121;
+                stroke-width: 1;
+                stroke-linecap: round;
+                opacity: 0.3;
+            }
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+
+            .stepNumber {
+                width: 56px;
+                height: 56px;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                font-size: 20px;
+                margin-bottom: 30px;
+                background: vars.$white;
+                color: vars.$text-primary;
+            }
+
+            .stepContent {
+                flex: 1;
+
+                h3 {
+                    font-size: 36px;
+                    font-weight: 700;
+                    margin-bottom: 24px;
+                    font-family: vars.$font-family-main;
+                    line-height: 1.2;
+                    color: vars.$text-primary;
+
+                    .pill {
+                        border: 1.2px solid vars.$text-primary;
+                        padding: 4px 24px;
+                        border-radius: 100px;
+                        font-weight: 700;
+                        background: vars.$white;
+                        font-size: 32px;
+                        display: inline-block;
+                        margin: 0 5px;
+                        line-height: 1;
+                        vertical-align: middle;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                    color: vars.$text-secondary;
+                    line-height: 1.5;
+                    max-width: 500px;
+
+                    strong {
+                        font-weight: 800;
+                        color: vars.$text-primary;
+                    }
+                }
+            }
+
+            .stepImages {
+                flex: 1.4;
+                display: flex;
+                justify-content: center;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 32px;
+                    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+                    background: white;
+                    padding: 0;
+                }
+
+                &.stack {
+                    img {
+                        max-width: 380px;
+                        transform: rotate(-3deg);
+                    }
+                }
+
+                &.dual {
+                    height: 500px;
+                    width: 100%;
+                    max-width: 600px;
+
+                    .mainImg {
+                        width: 280px;
+                        position: absolute;
+                        z-index: 2;
+                        top: 0;
+                    }
+
+                    .subImg {
+                        width: 280px;
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            &.leftStep {
+                flex-direction: row;
+                text-align: left;
+                
+                .stepContent p {
+                    margin-left: 0;
+                }
+            }
+
+            &.rightStep {
+                flex-direction: row-reverse;
+                text-align: left;
+                
+                .stepContent p {
+                    margin-left: 0;
+                }
+
+                .stepImages.dual {
+                    .mainImg {
+                        right: 0;
+                    }
+                    .subImg {
+                        left: 0;
+                    }
+                }
+            }
+            
+            &.step3 {
+                .stepImages.dual {
+                    .subImg {
+                        width: 200px;
+                        top: 40px;
+                        bottom: auto;
+                        left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .howItWorks {
+        padding: 60px 20px;
+
+        .sectionHeader {
+            margin-bottom: 60px;
+            .sectionTitle {
+                font-size: 32px;
+                .pill {
+                    font-size: 24px;
+                    padding: 5px 20px;
+                }
+            }
+        }
+
+        .stepsContainer {
+            gap: 80px;
+            
+            .stepConnector {
+                display: none;
+            }
+
+            .step {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 40px;
+
+                .stepNumber {
+                    margin: 0 auto 24px;
+                }
+
+                .stepImages {
+                    width: 100%;
+                    max-width: 450px;
+                    margin: 0 auto;
+                    
+                    &.dual {
+                        height: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
